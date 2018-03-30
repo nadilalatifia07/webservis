@@ -5,9 +5,9 @@
 <body>
 <?php
 if (isset ($_POST['nim'])) {
-$url = 'http://localhost/jsonmhsw.php';
+$url = 'http://localhost:90/webservice/jsonmhsw.php';
 //$data = "[{\"nim\":\".$_POST['nim'].\",\"nama\":\".$_POST['nama'].\",\"prodi\":\".$_POST['progdi'].\"}]";//
-$data="[{\"nim\":\"".$_POST['nim']."\",\"nama\":\"".$_POST['nama']."\",\"prodi\":\"".$_POST['progdi']."\"}]";
+$data="{\"nim\":\"".$_POST['nim']."\",\"nama\":\"".$_POST['nama']."\",\"prodi\":\"".$_POST['progdi']."\"}";
 echo "datanya ".$data;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -16,11 +16,9 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 $response = curl_exec($ch);
 echo "response ".$response;
-
 curl_close($ch);
 }
 ?>
-<a href="index.php">Lihat Buku</a>
 <form method="POST" action="tambahjson.php">
 <table>
 <tr>
